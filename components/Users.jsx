@@ -5,21 +5,23 @@ function Users({ users }) {
   const router = useRouter();
 
   return (
-    <div>
-      <ul className="list-group">
+    <div className="flex justify-center m-10">
+      <ul>
         {users.map((user) => (
           <li
-            className="list-group-item d-flex justify-content-between align-items-center list-group-item-action"
+            className="flex"
             key={user.id}
             onClick={() => router.push(`/users/${user.id}`)}
           >
-            <div>
+            <div className="">
               <h5>
                 {user.id}. {user.first_name} {user.last_name}
               </h5>
               <p>Email: {user.email}</p>
             </div>
-            <img src={user.avatar} style={{ borderRadius: "50%" }} />
+            <div>
+            <img src={user.avatar} className="border border-solid border-violet-900 rounded-full"/>
+            </div>
           </li>
         ))}
       </ul>
